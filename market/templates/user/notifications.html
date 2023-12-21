@@ -1,0 +1,55 @@
+{{define "notifications"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <div class="page-title">Notifications</div>
+            <div class="d-flex border-0 gap-2 mb-3">
+                <a href="#" class="btn btn-sm btn-outline-primary w-100">Mark All As Read</a>
+                <a href="#" class="btn btn-sm btn-outline-warning w-100">Delete Read Notifications</a>
+                <a href="#" class="btn btn-sm btn-outline-danger w-100">Delete All Notifications</a>
+            </div>
+            {{range .ViewNotifications}}
+            <div class="px-3 py-1 mb-1 {{if not .Read}} border-danger {{end}}">
+                <div class="d-flex justify-content-between border-0">
+                    <span>{{.Text}}</span>
+                    <a href="/notification/{{.Uuid}}"
+                        class="btn btn-sm {{if .Read}} btn-primary {{else}} btn-danger {{end}}">View</a>
+                </div>
+            </div>
+            {{end}}
+
+            <!-- <div class="px-3 py-1 mb-1 border-danger">
+                <div class="d-flex justify-content-between border-0">
+                    <span>This is notification example</span>
+                    <a href="#" class="btn btn-sm btn-danger">View</a>
+                </div>
+            </div>
+
+            <div class="px-3 py-1 mb-1">
+                <div class="d-flex justify-content-between border-0">
+                    <span>This is notification example</span>
+                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                </div>
+            </div> -->
+            <!-- end main content -->
+        </div>
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

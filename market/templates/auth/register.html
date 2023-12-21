@@ -1,0 +1,135 @@
+{{define "register"}}
+<!DOCTYPE html>
+<html>
+{{template "header"}}
+
+<body>
+  {{if .Error}}
+  <div class="border-0 argo-error-alert">{{.Error}}</div>
+  {{end}}
+  <div class="header border-0">
+    <div class="border-0">
+      <a href="/">
+        <img src="/img/logo/logo.png" width="300px" alt="logo" />
+      </a>
+    </div>
+  </div>
+  <!-- navbar -->
+  <nav class="argonav">
+    {{with .ViewUser}} {{else}}
+    <a href="/auth/login">Login</a>
+    <a href="/auth/register">Register</a>
+    {{end}}
+    <a href="#">Forum</a>
+    <a href="#">Canary</a>
+    <a href="#">SubDread</a>
+    <a href="#">Twittor Community</a>
+  </nav>
+  <!-- register templage -->
+  <div class="p-2 mt-2">
+    <div class="mt-2" style="padding: 5px 20px">Home > Settings</div>
+    <section class="col-xl-12 my-4">
+      <!-- <div class="row g-0 m-auto" style="max-width: 1200px"> -->
+      <div class="col-lg-6 m-auto">
+        <div class="card-body p-md-5 mx-md-4 border-0">
+          <div class="text-center border-0">
+            <img class="logo_image" src="/img/logo/logo.png" style="width: 185px" alt="logo" />
+            <h4 class="mt-1 mb-4 pb-1">The Best Marketplace</h4>
+          </div>
+
+          <form action="/auth/register" method="post">
+            <p>Please Sign up for free</p>
+            <div class="d-flex border-0">
+              <div class="form-outline mb-3 w-50" style="margin-right: 10px">
+                <input type="text" id="form2Example11" class="form-control" name="username" placeholder="UserName"
+                  data-bs-toggle="tooltip"
+                  title="This is your public username! This will be the username everyone will see." required />
+              </div>
+              <div class="form-outline mb-3 w-50">
+                <input type="text" id="form2Example11" class="form-control" name="phrase" placeholder="Login Phrase"
+                  data-bs-toggle="tooltip"
+                  title="This is optional. This is a phrase you will see every time you login on the market. It is useful to let you know that you are on the real url and not in a clone. Remember this does not protect you againist phishin proxy sites."
+                  required />
+              </div>
+            </div>
+            <div class="d-flex border-0">
+              <div class="form-outline mb-3 w-50" style="margin-right: 10px">
+                <input type="password" id="form2Example22" class="form-control" name="password" placeholder="Password"
+                  data-bs-toggle="tooltip"
+                  title="Choose a password. Important: Do not use the same password you use on other marketplaces." />
+              </div>
+              <div class="form-outline mb-3 w-50">
+                <input type="password" id="form2Example22" class="form-control" name="confirm_password"
+                  placeholder="Confirm Password" data-bs-toggle="tooltip"
+                  title="Confirm the password you want to use to make sure is correct." />
+              </div>
+            </div>
+            <div class="d-flex border-0">
+              <div class="form-outline mb-3 w-50" style="margin-right: 10px">
+                <input type="password" id="form2Example22" class="form-control" placeholder="Pin" name="pin"
+                  data-bs-toggle="tooltip"
+                  title="Remember: Maximum 6 digits. Example- 123456 Important: Only mumbers! Do not use letters! You will neet to introduce you PIN before confirming a purchase so if your account is compromised the hacker won't be able to make purchases with your account.Do not forget this PIN and never share it with on one." />
+              </div>
+              <div class="form-outline mb-3 w-50">
+                <input type="password" id="form2Example22" class="form-control" name="confirm_pin"
+                  placeholder="Confirm Pin" data-bs-toggle="tooltip" title="Let's confirm your 6 digits PIN again." />
+              </div>
+            </div>
+            <div class="d-flex border-0">
+              <div class="form-outline mb-3 w-50" style="margin-right: 10px">
+                <input type="text" id="form2Example11" class="form-control" name="captcha" placeholder="Captcha"
+                  data-bs-toggle="tooltip"
+                  title="This is Captcha. This is a phrase you will see every time you login on the market. It is useful to let you know that you are on the real url and not in a clone. Remember this does not protect you againist phishin proxy sites." />
+              </div>
+              <div class="form-outline mb-3 w-50">
+                <input type="text" id="form2Example11" class="form-control" name="invite_code"
+                  placeholder="Invite User (Optional)" data-bs-toggle="tooltip"
+                  title="Optional. If ysomne yser has referred you to the market typehere the referral code." />
+              </div>
+            </div>
+            <div class="text-center pt-1 mb-4 pb-1 border-0">
+              <button class="btn btn-primary mb-3 w-100" type="submit">
+                Sign Up
+              </button>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center pb-4 border-0">
+              <p class="mb-0 me-2">You have already account?</p>
+              <a href="/auth/login" class="btn btn-primary"> Login now </a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2 border-0 bg-primary">
+                    <div class="text-white px-2 py-4 px-md-4 py-md-5 mx-md-4 border-0">
+                        <h3 class="mb-4 color-heading fw-bold">Congratulation!</h3>
+                        <p class="medium mb-0">
+                            You have made the decision to register on <span class="color-instagram fw-bold">Argo
+                                Market</span>!
+                            <br>
+                            Please enter your selected username and password to begin shopping on <span
+                                class="color-instagram fw-bold">Argo Market</span> via our
+                            Secure <span class="color-instagram fw-bold">Escrow System</span>.
+                            <br>
+                            We encourage you to record your unique login passphrase which will be generated. This unique
+                            passphrase will help verify that you are on the authentic marketplace and not a phishing
+                            site.
+                            <br>
+                            We highly recommend adding a <span class="color-instagram fw-bold">PGP Public Key</span> and
+                            enabling <span class="color-instagram fw-bold">Two Factor Authentication</span>(2FA) for
+                            added security on your account.
+    
+                        </p>
+                    </div>
+                </div> -->
+      <!-- </div> -->
+    </section>
+  </div>
+
+  <!-- foother -->
+  {{template "footer"}}
+</body>
+
+</html>
+
+{{end}}

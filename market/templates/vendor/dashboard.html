@@ -1,0 +1,69 @@
+{{define "vendor_dashboard"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <div class="page-title">Vendor Dashboard</div>
+
+            <div class="p-4 d-flex justify-content-around">
+                <a href="/vendor/create/physical" class="btn btn-sm btn-primary">Create Physical</a>
+                <a href="/vendor/create/digital" class="btn btn-sm btn-primary">Create Digital</a>
+            </div>
+
+            <div class="p-1 mt-2">
+                <div class="page-sub-title">My Listings</div>
+                <div class="table-responsive p-2">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Total Amount</th>
+                                <th>Sales</th>
+                                <th>Views</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{range .ViewPackages}}
+                            <tr>
+                                <td>{{ .Name }}</td>
+                                <td>{{ .Type }}</td>
+                                <td>{{ .CategoryName }}</td>
+                                <td>{{ .TotalAmount }} {{ .Measure }}</td>
+                                <td>{{ .NumberOfSales }}</td>
+                                <td>{{ .NumberOfViews }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Delete</a>
+                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Promote</a>
+                                </td>
+                            </tr>
+                            {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- end main content -->
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

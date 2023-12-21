@@ -1,0 +1,241 @@
+{{define "sidebar"}}
+
+<div class="sidebar border-0">
+  <!-- user profile -->
+  <div class="p-2 mb-2">
+    <div class="user-profile border-0">
+      <a href="/profile/{{.ViewUser.Username}}"><img src="/img/avatar.png" class="rounded" width="90px" /></a>
+      <div class="user-detail border-0">
+        <span>{{.ViewUser.Username}} (0) <i class="color-green">100%</i></span><br />
+        <span>
+          Trust Level:
+          <span class="bg-success text-light" style="border-radius: 0.2rem; padding: 0px 5px">1</span>
+        </span>
+        <br />
+        <a href="/notifications/user" class="btn btn-sm btn-danger w-100 mb-2">
+          Notifications (0)
+        </a>
+        <div class="d-flex border-0">
+          <div class="border-0 me-1" style="border-right: 1px solid var(--primary)">
+            <img src="/img/icons/bitcoin.png" width="20px" class="mb-1" alt="bitcoin" />Bitcoin
+            <br />
+            <span class="bg-primary text-light" style="border-radius: 5px; padding-left: 4px; padding-right: 4px">
+              0.0000000
+            </span>
+          </div>
+          <div style="
+              border-width: 0px;
+              border-left-width: 1px;
+              border-radius: 0px;
+              width: 1px;
+              padding: 0px;
+            "></div>
+          <div class="border-0 ms-1">
+            <img src="/img/icons/XMR.png" width="20px" class="mb-1" alt="xmr" />Monero
+            <br />
+            <span class="bg-primary text-light" style="border-radius: 5px; padding-left: 4px; padding-right: 4px">
+              0.0000000
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-0">
+      <div class="d-flex justify-content-between border-0">
+        <a href="/orders/user" class="btn btn-sm btn-outline-light mb-1" style="width: 125px">
+          My Orders
+        </a>
+        <a href="/favorites" class="btn btn-sm btn-outline-light mb-1" style="width: 125px">
+          My Favorites
+        </a>
+      </div>
+      <div class="d-flex justify-content-between border-0">
+        <a href="/settings/user" class="btn btn-sm btn-outline-light" style="width: 125px">
+          My Settings
+        </a>
+        <form action="/auth/logout" method="post">
+          <button type="submit" class="btn btn-sm btn-outline-light" style="width: 125px">
+            Log out
+          </button>
+        </form>
+      </div>
+    </div>
+    <button class="btn btn-sm btn-primary w-100 mt-2">My Argo +</button>
+  </div>
+  <!-- quick search -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Qucik Search</button>
+    <span>Search Product:</span><br />
+    <input type="text" class="w-100 bg-back px-2" style="border: 1px solid white; border-radius: 0.3rem"
+      placeholder="What are you looking for?" />
+    <span>Search Vendor:</span><br />
+    <input type="text" class="w-100 bg-back px-2" style="border: 1px solid white; border-radius: 0.3rem"
+      placeholder="What are you looking for?" />
+    <span>Sort by:</span><br />
+    <select class="w-100 bg-back px-2 form-control-sm" style="border: 1px solid white; border-radius: 0.3rem">
+      <option>Most Recent</option>
+      <option>Most Ancient</option>
+      <option>Lowest Price</option>
+      <option>Highest Price</option>
+    </select>
+    <div class="text-center border-0">
+      <button class="btn btn-sm btn-primary mt-2">Search</button>
+    </div>
+  </div>
+  <!-- browser categories -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Browser Categories</button>
+    <div class="text-center border-0">
+      <i class="fw-400 color-gray" style="font-size: 13px">Click on the left arrow to see sub categories</i>
+    </div>
+    <ul class="shop-category-list">
+      <li class="d-flex flex-column">
+        <input type="checkbox" name="category" id="category" class="category_id" />
+        <div class="d-flex w-100 border-0 align-items-center pe-2">
+          <label for="category" class="rotatelabel">
+            <img src="/img/icons/listarrow_white.png" width="12" height="10" alt="listarrow_white"
+              style="margin-top: -2px" />
+          </label>
+          <a href="#" class="d-flex justify-content-between w-100">
+            Drugs & Chemicals<span>(4)</span>
+          </a>
+        </div>
+        <ul class="subcategory pe-2">
+          <li>
+            <input type="checkbox" name="category" id="category_" class="category_id" />
+            <div class="d-flex w-100 border-0 align-items-center">
+              <label for="category_" class="rotatelabel">
+                <img src="/img/icons/listarrow_white.png" width="12" height="10" alt="listarrow_white"
+                  style="margin-top: -2px" />
+              </label>
+              <a href="#" class="d-flex justify-content-between w-100">Benzos<span>(2)</span></a>
+            </div>
+            <ul class="subcategory">
+              <li>
+                <a href="#" class="d-flex justify-content-between w-100">Benzos1<span>(1)</span></a>
+              </li>
+              <li>
+                <a href="#" class="d-flex justify-content-between w-100">Benzos2<span>(1)</span></a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="d-flex justify-content-between w-100">Cocain<span>(1)</span></a>
+          </li>
+          <li>
+            <a href="#" class="d-flex justify-content-between w-100">Ecastry<span>(1)</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- advance search -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Advanced Search</button>
+    <span>Search Product:</span><br />
+    <input type="text" class="w-100 bg-back px-2" style="border: 1px solid white; border-radius: 0.3rem"
+      placeholder="What are you looking for?" />
+    <span>Search Vendor:</span><br />
+    <input type="text" class="w-100 bg-back px-2" style="border: 1px solid white; border-radius: 0.3rem"
+      placeholder="What are you looking for?" />
+    <span>Ships to:</span><br />
+    <select>
+      <option>Most Recent</option>
+      <option>Most Ancient</option>
+      <option>Lowest Price</option>
+      <option>Highest Price</option>
+    </select>
+    <span>Origin Country:</span><br />
+    <select class="w-100">
+      <option>Most Recent</option>
+      <option>Most Ancient</option>
+      <option>Lowest Price</option>
+      <option>Highest Price</option>
+    </select>
+    <span>By Category:</span><br />
+    <select class="w-100">
+      <option>Most Recent</option>
+      <option>Most Ancient</option>
+      <option>Lowest Price</option>
+      <option>Highest Price</option>
+    </select>
+    <span>Sort by:</span><br />
+    <select class="w-100">
+      <option>Most Recent</option>
+      <option>Most Ancient</option>
+      <option>Lowest Price</option>
+      <option>Highest Price</option>
+    </select>
+    <div class="text-center border-0">
+      <button class="btn btn-sm btn-primary mt-2">Search</button>
+    </div>
+  </div>
+  <!-- profile actions -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Profile Actions</button>
+    <ul class="profile_actions">
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage</a>
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage<span>53</span></a>
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage</a>
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage<span>4</span></a>
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage</a>
+      <a class="border-bottom w-100 d-flex justify-content-between">Homepage</a>
+    </ul>
+  </div>
+  <!-- Buyer statistics -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Buyer Statistics</button>
+    <strong>Bought Items</strong>
+    <li class="d-flex justify-content-between w-100">
+      Items Bought<span>4</span>
+    </li>
+    <strong>Payments</strong>
+    <li class="d-flex justify-content-between w-100">
+      Paid<span class="color-green">USD 0.00</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      In Escrow<span class="color-red">USD 0.00</span>
+    </li>
+    <b class="d-flex justify-content-between w-100 border-top">Total Purchases<span class="color-primary">USD
+        0.00</span></b>
+  </div>
+  <!-- exchange rates -->
+  <div class="p-2 mb-2">
+    <button class="sidebar-title">Exchange Rates</button>
+    <strong>Bitcoin (BTC)</strong>
+    <li class="d-flex justify-content-between w-100">
+      United States Dollar(USD)<span>21701.86</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Canadian Dollar(CAD)<span>29195.37</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Euro (EUR)<span>23451.45</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Austrailian Dollar (AUD)<span>33455.34</span>
+    </li>
+    <button class="btn btn-sm btn-outline-light mb-1 w-100">
+      Deposit & Withdrawal (BTC)
+    </button>
+    <strong>Monero (XMR)</strong>
+    <li class="d-flex justify-content-between w-100">
+      United States Dollar(USD)<span>21701.86</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Canadian Dollar(CAD)<span>29195.37</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Euro (EUR)<span>23451.45</span>
+    </li>
+    <li class="d-flex justify-content-between w-100">
+      Austrailian Dollar (AUD)<span>33455.34</span>
+    </li>
+    <button class="btn btn-sm btn-outline-light mb-1 w-100">
+      Deposit & Withdrawal (XMR)
+    </button>
+  </div>
+</div>
+
+{{end}}

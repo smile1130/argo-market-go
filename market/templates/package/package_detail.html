@@ -1,0 +1,124 @@
+{{define "package_detail"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <div class="page-title">{{ .ViewPackage.Name }}</div>
+            <div>
+                <div class="d-flex p-2 border-0">
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0">
+                        <div class="h-100 border-0">
+                            <h5>Package Description</h5>
+                            <textarea class="w-100" rows="8" style="resize: none;" readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0">
+                        <div class="h-100 text-center border-0">
+                            <img class="rounded" src="/img/product.png" width="250px">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0">
+                        <div class="border-0">
+                            <h5>Vendor Details</h5>
+                            <div class="bg-dark d-flex border-0 p-3">
+                                <img src="/img/avatar.png" class="rounded ms-2 me-4" width="80px" height="80px" />
+                                <div class="border-0">
+                                    <p class="fw-bold" style="margin-bottom: 10px;"> Boris(0)
+                                        <i class="bg-success text-light rounded px-1">Trust Level 1</i>
+                                    </p>
+                                    <p class="color-green" style="margin-bottom: 10px;">Positive Feedback: 100%</p>
+                                    <p class="" style="margin-bottom: 10px;">Positive Feedback (last 12 months): 100%
+                                    </p>
+                                    <p class="" style="margin-bottom: 10px;">Member Since: Feburaru 10, 2023</p>
+                                    <div class="border-0 mb-2">
+                                        <button class="btn btn-sm btn-danger">Contact Vendor</button>
+                                        <button class="btn btn-sm btn-success">View Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex p-2 border-0">
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0">
+                        <div class="h-100 border-0">
+                            <h5>Terms & Conditions</h5>
+                            <textarea class="w-100" rows="12" style="resize: none;" readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0 px-2">
+                        <div class="h-100 border-0">
+                            <h5>Package Description</h5>
+                            <form class="user-form border rounded p-2">
+                                <div class="form-group d-flex justify-content-between border-0">
+                                    <label>Product Price:</label>
+                                    149.74 $
+                                </div>
+                                <div class="form-group border-0">
+                                    <label>Select Amount:</label>
+                                    <input type="number" class="form-control" value="1">
+                                </div>
+                                <div class="form-group border-0">
+                                    <label>Select Shipping</label>
+                                    <select class="form-select" aria-label="Shipping select">
+                                        <option value="1" selected>Normal Letter Mail - Price 0.87 - 10 Days Average
+                                        </option>
+                                        <option value="1" selected>Normal Letter Mail - Price 0.87 - 10 Days Average
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group d-flex justify-content-between border-0">
+                                    <label>Payment System:</label>
+                                    Escrow
+                                </div>
+                                <div class="form-group d-flex justify-content-between border-0">
+                                    <label>Payment Currency:</label>
+                                    XMR
+                                </div>
+                                <div class="form-group d-flex justify-content-between border-0">
+                                    <label>Average Product Score:</label>
+                                    <div>
+                                        <i class="bi-star"></i>
+                                        <i class="bi-star"></i>
+                                        <i class="bi-star"></i>
+                                        <i class="bi-star"></i>
+                                        <i class="bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group border-0">
+                                    <button class="btn btn-primary btn-sm mb-2">Add to Whishlist</button>
+                                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4 border-0">
+                        <div class="h-100 border-0">
+                            <h5>Vendor Public PGP key</h5>
+                            <textarea class="w-100" rows="12" style="resize: none;" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end main content -->
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

@@ -1,0 +1,86 @@
+{{define "create_digital"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <form method="post" action="">
+                <div class="page-title">+ Create Digital Product</div>
+
+                <div class="py-1 px-4">
+                    <div class="page-sub-title">General Information</div>
+                    <div class="border-0 mt-4 d-flex">
+                        <div class="border-0" style="width: 180px;">Product Name:</div>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="border-0 mt-2 d-flex">
+                        <div class="border-0" style="width: 180px;">Category:</div>
+                        <select name="category">
+                            <option>Canabis</option>
+                            <option>asdlfjasdlkf sdjfals </option>
+                            <option>asdlfjasdlkf sdjfals </option>
+                        </select>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Product Description:</div>
+                        <textarea class="w-100" name="description" rows="4"></textarea>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Refund Policy:</div>
+                        <textarea class="w-100" name="refund_policy" rows="4"></textarea>
+                    </div>
+                    <div class="checkbox-wrapper-34 border-0 d-flex align-items-center mt-2">
+                        <div class="border-0" style="width: 180px;">Crypto Currencies:</div>
+                        <span class="me-2">All-</span>
+                        <input class='tgl tgl-ios' id='toggle-34' name="currency" type='radio'>
+                        <label class='tgl-btn' for='toggle-34'></label>
+                        <span class="mx-2">Bitcoin-</span>
+                        <input class='tgl tgl-ios' id='toggle-35' name="currency" type='radio'>
+                        <label class='tgl-btn' for='toggle-35'></label>
+                        <span class="mx-2">Monero-</span>
+                        <input class='tgl tgl-ios' id='toggle-36' name="currency" type='radio'>
+                        <label class='tgl-btn' for='toggle-36'></label>
+                    </div>
+                    <div class="border-0 my-2 d-flex">
+                        <div class="border-0" style="width: 180px;">Price(USD):</div>
+                        <input type="number" name="price" class="me-4">
+                    </div>
+                </div>
+                <div class="py-1 px-4 mt-2">
+                    <div class="page-sub-title">Automatic Information</div>
+
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Default Message:</div>
+                        <textarea class="w-100" name="default_msg" rows="4"
+                            placeholder="Here you can leave an automated message which will be sent once the order is paid. Don't include here your digital product, use the below textarea if you want to use the auto dispatch feature."></textarea>
+                    </div>
+                    <div class="checkbox-wrapper-34 border-0 align-items-center mt-2">
+                        <span class="border-0 me-4">Auto Dispatch:</span>
+                        <input class='tgl tgl-ios mb-1' id='toggle-auto' name="is_auto" type='checkbox'>
+                        <label class='tgl-btn mb-1' for='toggle-auto'></label>
+                        <textarea class="w-100" name="auto_dispatch" rows="4" hidden></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary d-block mx-auto mt-2">+ Create
+                    Product</button>
+            </form>
+        </div>
+        <!-- end main content -->
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

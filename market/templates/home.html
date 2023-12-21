@@ -1,0 +1,144 @@
+{{define "home"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  <!-- navbar -->
+  {{template "navbar" .}}
+  <!-- main body -->
+  <div class="py-1 px-3 mt-2">
+    <div class="me-2 border-0">Home > Settings</div>
+  </div>
+  <div class="p-2 mt-2 d-flex">
+    <!-- sidebar -->
+    {{template "sidebar" .}}
+
+    <!-- main content -->
+    <div class="main-content p-2">
+      {{if not .ViewUser.Location}}
+      <div class="page-title">Hey You! - Welcome To Argo MarketPlace</div>
+      <div class="d-flex border-0 gap-2 mb-2">
+        <div>
+          <a href="/marketplace/worldwide" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/America.png" />
+            <span class="fs-4">World Wide</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/america" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/America.png" />
+            <span class="fs-4">America</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/canada" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Canada.png" />
+            <span class="fs-4">Canada</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/europe" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Europe.png" />
+            <span class="fs-4">Europe</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/asia" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Asia.png" />
+            <span class="fs-4">Asia</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/australia" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Oceania.png" />
+            <span class="fs-4">Australia</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/latin" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Latin_America.png" />
+            <span class="fs-4">Latin</span>
+            <span class="fs-4" style="margin-top: -12px">America</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/africa" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Africa.png" />
+            <span class="fs-4">Africa</span>
+          </a>
+        </div>
+        <div>
+          <a href="/marketplace/middleeast" class="p-3 d-flex flex-column align-items-center gap-3">
+            <img src="/img/continent/Middle_East.png" />
+            <span class="fs-4">Middle</span>
+            <span class="fs-4" style="margin-top: -12px">East</span>
+          </a>
+        </div>
+      </div>
+      {{end}}
+      <div class="page-title">Featured Listings</div>
+      <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 border-0">
+
+        <div class="border-0">
+          <div class="col mt-2 p-1">
+            <div class="px-2">
+              <span>Test Product</span>
+            </div>
+            <div class="d-flex justify-content-between border-0">
+              <div class="p-1 border-0">
+                <img src="/img/product.png" width="110px" class="rounded" />
+              </div>
+              <div class="product_detail border-0">
+                <span style="text-wrap:nowrap;display: -webkit-box;overflow: hidden;">Sold by: Ivan</span>
+                <div class="d-flex align-items-center justify-content-between border_top border-0">
+                  <div class="product_detail_item">
+                    <span>Feedback</span><br />
+                    <span class="bg-success rounded p-1"> 99.79% </span>
+                  </div>
+                  <div class="product_detail_item" style="border-left: 1px solid white">
+                    <div class="border-0">Vendor Lvf</div>
+                    <span class="bg-secondary rounded p-1">10</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between border_top border-0">
+                  <div class="product_detail_item d-flex align-items-center justify-content-center border-0">
+                    <select class="p-0" style="min-width: auto;width: 95% !important;">
+
+                      <option>$20 / 1 Gram</option>
+
+                    </select>
+                  </div>
+                  <div class="product_detail_item" style="border-left: 1px solid white">
+                    <img src="/img/flags/ca.png" alt="CA" width="28px" title="Canada">
+                    <img src="/img/icons/arrow-right.png" width="10px" />
+                    <img src="/img/flags/us.png" alt="US" width="28px">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-2 border-0 mt-1">
+              <button class="btn btn-sm btn-success w-100">
+                Add To Cart
+                <img src="/img/icons/cart_white.png" width="18px" style="margin-top: -2px" />
+              </button>
+              <!-- <a href="/product/12" class="btn btn-sm btn-primary w-100">
+                View Product
+                <img src="/img/icons/arrow-right.png" width="18px" style="margin-top: -2px" />
+              </a> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- end main content -->
+  </div>
+  <!-- foother -->
+  {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

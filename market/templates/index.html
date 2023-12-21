@@ -1,0 +1,26 @@
+{{define "homes"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  <!-- navbar -->
+  {{template "navbar" .}}
+  <!-- main body -->
+  <div class="p-2 mt-3 d-flex">
+    <!-- sidebar -->
+    {{template "sidebar" .}}
+
+    <!-- main content -->
+    <div class="main-content p-2">
+    </div>
+    <!-- end main content -->
+  </div>
+  <!-- foother -->
+  {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

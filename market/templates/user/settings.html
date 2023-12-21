@@ -1,0 +1,97 @@
+{{define "user-settings"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  {{if .Error}}
+  <div class="border-0 argo-error-alert">{{.Error}}</div>
+  {{end}}
+  {{if .Success}}
+  <div class="border-0 argo-success-alert">{{.Success}}</div>
+  {{end}}
+  <!-- navbar -->
+  {{template "navbar" .}}
+  <!-- main body -->
+  <div class="py-1 px-3 mt-2">
+    <div class="me-2 border-0">Home > Settings</div>
+  </div>
+  <div class="p-2 mt-2 d-flex">
+    <!-- sidebar -->
+    {{template "sidebar" .}}
+
+    <!-- main content -->
+    <div class="main-content p-2">
+      <div class="page-title">Settings</div>
+
+      <div class="border-0 d-flex justify-content-around mt-2">
+        <a href="/settings/user?section=profile"
+          class="btn btn-outline-light {{if eq .SelectedSection `profile`}} active {{end}}">Profile</a>
+        <a href="/settings/user?section=contacts"
+          class="btn btn-outline-light {{if eq .SelectedSection `contacts`}} active {{end}}">Continents</a>
+        <a class="btn btn-outline-light {{if eq .SelectedSection `payments`}} active {{end}}">Payments</a>
+        <a class="btn btn-outline-light {{if eq .SelectedSection `encryptions`}} active {{end}}">Encryptions</a>
+        <a class="btn btn-outline-light {{if eq .SelectedSection `password`}} active {{end}}">Password</a>
+      </div>
+      <div class="p-2 mt-2">
+        {{if eq .SelectedSection `profile`}}
+        <div class="page-sub-title mb-2">Profile</div>
+        <form action="/settings/user" method="post" class="row px-2 border-0" enctype="multipart/form-data">
+          <div class="col-lg-6 col-sm-12 mb-3 p-1 border-0">
+            <div class="p-2">
+              <div class="border-0 text-center">
+                {{with .ViewUser.Avatar}}
+                <img src="/img/avatar.png" class="rounded-circle" width="80px" alt="user" />
+                {{else}}
+                <img src="{{.ViewUser.Avatar}}" class="rounded-circle" width="80px" alt="user" />
+                {{end}}
+              </div>
+              <center>{{.ViewUser.User.Username}}<br>Last Login: July 6 2023</center>
+              <label>Change Avatar</label>
+              <input class="w-100" name="avatar" type="file" />
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-sm-12 mb-2 p-1 border-0">
+            <div class="p-2">
+              <h4>Profile description</h4>
+              <textarea style="height: 157px" class="w-100" name="description">{{ .ViewUser.Description }}</textarea>
+            </div>
+          </div>
+          <div class="col-lg-12 col-sm-12 mb-3 p-1 border-0">
+            <div class="p-2">
+              <div class="p-2 d-flex align-items-center mb-2 border-0">
+                <span class="me-2">Username: </span>
+                <input type="text" class="w-100" name="username" placeholder="Username" />
+              </div>
+              <div class="p-2 d-flex align-items-center mb-2 border-0">
+                <span class="me-2" style="width: 110px;">Old Password:</span>
+                <input type="password" class="w-100" name="old_password" placeholder="Old Password" />
+              </div>
+              <div class="p-2 d-flex align-items-center mb-2 border-0">
+                <span class="me-2" style="width: 110px;">New Password: </span>
+                <input type="password" class="w-100" name="password" placeholder="New Password" />
+              </div>
+              <div class="p-2 d-flex align-items-center mb-2 border-0">
+                <span class="me-2" style="width: 140px;">Confirm Password: </span>
+                <input type="password" class="w-100" name="confirm_password" placeholder="Confirm Password" />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary m-auto" style="width: unset;">Save</button>
+        </form>
+        {{else if eq .SelectedSection `contacts`}}
+        <div class="page-sub-title mb-2">Contacts</div>
+        {{end}}
+      </div>
+    </div>
+    <!-- end main content -->
+  </div>
+  <!-- foother -->
+  {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

@@ -1,0 +1,59 @@
+{{define "navbar"}}
+
+<!-- logo and user status -->
+
+<div class="header border-0">
+  <div class="logo border-0">
+    {{if or (not .ViewUser.Location) (eq .ViewUser.Location "worldwide") }}
+    <a href="/"><img src="/img/logo/logo.png" width="300px" alt="logo" /></a>
+    {{else}}
+    <a href="/"><img src="/img/logo/logo_{{.ViewUser.Location}}.png" width="300px" alt="logo" /></a>
+    {{end}}
+  </div>
+  <div class="d-flex align-items-center border-0">
+    <img src="/img/avatar.png" width="50px" height="50px" class="rounded-circle" alt="avatar" />
+    <div class="d-flex flex-column p-1 border-0">
+      <span class="d-flex align-items-center justify-content-between">
+        <small class="mt-1">Logged in <span class="color-red">{{ .ViewUser.Username }}</span> as
+          <span class="color-green">{{ .ViewUser.Role }}</span></small>
+        <form action="/auth/logout" method="post">
+          <button type="submit" class="btn btn-danger btn-sm ms-1">
+            Logout
+          </button>
+        </form>
+      </span>
+      <small>BTC: 0.0000000 / XMR: 0.0000000</small>
+    </div>
+  </div>
+</div>
+<!-- currency capacity -->
+<div class="d-flex justify-content-end border-0">
+  <ul class="capacity">
+    <li>USD 1324654 |&nbsp;</li>
+    <li>CAD 654212 |&nbsp;</li>
+    <li>EUR 4574984 |&nbsp;</li>
+    <li>AUD 5753 |&nbsp;</li>
+    <li>GBP 645432</li>
+  </ul>
+</div>
+<!-- navbar -->
+<nav class="argonav">
+  {{with .ViewUser}} {{else}}
+  <a href="/auth/login">Login</a>
+  <a href="/auth/register">Register</a>
+  {{end}}
+  {{if .ViewUser.IsVendor}}
+  <a href="#">Sales(0)</a>
+  <a href="/vendor/dashboard">My Listings(0)</a>
+  {{else}}
+  <a href="/orders/user">Orders(0)</a>
+  {{end}}
+  <a href="#">Messages(0)</a>
+  <a href="#">Wallets</a>
+  <a href="/profile/{{.ViewUser.Username}}">Profile</a>
+  <a href="#">Canary</a>
+  <a href="#">SubDread</a>
+  <a href="#">Twittor Community</a>
+</nav>
+
+{{end}}

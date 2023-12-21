@@ -1,0 +1,109 @@
+{{define "profile"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  <!-- navbar -->
+  {{template "navbar" .}}
+  <!-- main body -->
+  <div class="py-1 px-3 mt-2">
+    <div class="me-2 border-0">Home > Settings</div>
+  </div>
+  <div class="p-2 mt-2 d-flex">
+    <!-- sidebar -->
+    {{template "sidebar" .}}
+
+    <!-- main content -->
+    <div class="main-content p-2">
+      <div class="page-title">{{.ViewProfileUser.Username}}'s Profile</div>
+      <div class="border-0 bg-notify text-center fw-bold m-auto color-primary"
+        style="margin-top: -10px !important; width: 100px">{{.ViewProfileUser.Role}}
+      </div>
+      <div class="p-2 d-flex align-items-center gap-3 mt-3">
+        <img src="/img/avatar.png" class="rounded ms-5" width="80px" />
+        <div class="border-0" style="line-height: 20px">
+          <span class="fw-bold"> (0)
+            <i class="bg-success text-light rounded px-1">Trust Level 1</i></span><br />
+          <small class="color-green fw-bold">Positive Feedback: 100%</small><br />
+          <small class="fw-bold">Positive Feedback (last 12 months): 100%</small><br />
+          <small class="fw-bold">Member Since: Feburaru 10, 2023</small>
+        </div>
+      </div>
+      <div class="d-flex gap-2 p-2 mt-2">
+        <div class="w-50 border-0">
+          <div class="page-sub-title w-100">Buyer Feedback Ratings</div>
+          <div class="border-0 bg-notify text-center fw-bold m-auto color-primary"
+            style="width: 150px;margin-top: -10px !important;">
+            Last 12 Months
+          </div>
+          <div class="grid-table px-2">
+            <div></div>
+            <div>1 month</div>
+            <div>6 month</div>
+            <div>12 months</div>
+          </div>
+          <div class="grid-table px-2">
+            <div class="text-success">Positive</div>
+            <div>0</div>
+            <div>0</div>
+            <div>0</div>
+          </div>
+          <div class="grid-table px-2">
+            <div class="text-success">Netural</div>
+            <div>0</div>
+            <div>0</div>
+            <div>0</div>
+          </div>
+          <div class="grid-table px-2">
+            <div class="text-danger">Negative</div>
+            <div>0</div>
+            <div>0</div>
+            <div>0</div>
+          </div>
+        </div>
+        <div class="w-50 border-0">
+          <div class="page-sub-title w-100">Global Statistics</div>
+          <div class="border-0 bg-notify text-center fw-bold m-auto color-primary"
+            style="width: 150px;margin-top: -10px !important;">
+            Since Join Date
+          </div>
+          <div class="grid-table1 px-2">
+            <div>Disputes Won/Lost:</div>
+            <div></div>
+            <div>0/0</div>
+          </div>
+          <div class="grid-table1 px-2">
+            <div>Total Spendings:</div>
+            <div></div>
+            <div>USD 0.00</div>
+          </div>
+          <div class="grid-table1 px-2">
+            <div>Feedback Left:</div>
+            <div></div>
+            <div>0 (0% Positive)</div>
+          </div>
+          <div class="grid-table1 px-2">
+            <div>Last Online:</div>
+            <div></div>
+            <div>Feb 10, 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="border-0 d-flex justify-content-around mt-2">
+        <a class="btn btn-outline-light active">Conversations</a>
+        <a class="btn btn-outline-light">Orders</a>
+        <a class="btn btn-outline-light">Trash</a>
+        <a class="btn btn-outline-light">Invitation</a>
+      </div>
+    </div>
+    <!-- end main content -->
+  </div>
+  <!-- foother -->
+  {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

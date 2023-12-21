@@ -1,0 +1,169 @@
+{{define "create_physical"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <form method="post" action="/vendor/create/physical-product">
+                <div class="page-title">+ Create Physical Product</div>
+
+                <div class="py-1 px-4">
+                    <div class="page-sub-title">General Information</div>
+                    <div class="border-0 mt-4 d-flex">
+                        <div class="border-0" style="width: 180px;">Product Name:</div>
+                        <input type="text" name="name" placeholder="Product Name" required>
+                    </div>
+                    <div class="border-0 mt-2 d-flex">
+                        <div class="border-0" style="width: 180px;">Category:</div>
+                        <select name="category">
+                            {{range .Categories}}
+                            <option value="{{.Uuid}}" class="fw-bold" disabled>{{.Name}}</option>
+                            {{range .SubCategories}}
+                            <option value="{{.Uuid}}" disabled>&nbsp;&nbsp;{{.Name}}</option>
+                            {{range .SubCategories}}
+                            <option value="{{.Uuid}}">&nbsp;&nbsp;&nbsp;&nbsp;{{.Name}}</option>
+                            {{end}}
+                            {{end}}
+                            {{end}}
+                        </select>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Product Description:</div>
+                        <textarea class="w-100" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Refund Policy:</div>
+                        <textarea class="w-100" name="refund_policy" rows="4" required></textarea>
+                    </div>
+                    <div class="checkbox-wrapper-34 border-0 d-flex align-items-center mt-2">
+                        <div class="border-0" style="width: 180px;">Payment Method:</div>
+                        <span class="mx-2">Escrow-</span>
+                        <input class='tgl tgl-ios' id='toggle-32' name="paymethod" value="escrow" type='radio' checked>
+                        <label class='tgl-btn' for='toggle-32'></label>
+                        <span class="mx-2 text-danger">FE-</span>
+                        <input class='tgl tgl-ios' id='toggle-33' name="paymethod" value="fe" type='radio'>
+                        <label class='tgl-btn' for='toggle-33'></label>
+                    </div>
+                    <div class="checkbox-wrapper-34 border-0 d-flex align-items-center mt-2">
+                        <div class="border-0" style="width: 180px;">Crypto Currencies:</div>
+                        <span class="mx-2">All-</span>
+                        <input class='tgl tgl-ios' id='toggle-34' name="currency" value="all" type='radio' checked>
+                        <label class='tgl-btn' for='toggle-34'></label>
+                        <span class="mx-2">Bitcoin-</span>
+                        <input class='tgl tgl-ios' id='toggle-35' name="currency" value="bitcoin" type='radio'>
+                        <label class='tgl-btn' for='toggle-35'></label>
+                        <span class="mx-2">Monero-</span>
+                        <input class='tgl tgl-ios' id='toggle-36' name="currency" value="monero" type='radio'>
+                        <label class='tgl-btn' for='toggle-36'></label>
+                    </div>
+                    <div class="border-0 my-2 d-flex">
+                        <div class="border-0" style="width: 180px;">Total Amount:</div>
+                        <input type="number" name="total_amount" class="me-4">
+                        <select name="measure">
+                            <option value="Grams">Grams</option>
+                            <option value="Item">Item</option>
+                            <option value="Ounce">Ounce</option>
+                            <option value="Eight">Eight</option>
+                            <option value="Pills">Pills</option>
+                            <option value="Quarter">Quarter</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Pounds">Pounds</option>
+                            <option value="Piece">Piece</option>
+                            <option value="Box">Box</option>
+                            <option value="Cart">Cart</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="py-1 px-4 mt-2">
+                    <div class="page-sub-title">Price Information</div>
+                    <div class="d-flex border-0 mt-4">
+                        #1. Price Per One Item: <input type="number" name="price1" class="mx-2" required> When the
+                        Ordering
+                        amonut is less than
+                        <input type="number" name="subquantity1" value="1" class="mx-2" readonly>
+                    </div>
+                    <div class="d-flex border-0 mt-2">
+                        #2.(Optional) Price Per One Item: <input type="number" name="price2" class="mx-2"> When the
+                        Ordering amonut is less than
+                        <input type="number" name="subquantity2" class="mx-2">
+                    </div>
+                    <div class="d-flex border-0 mt-2">
+                        #3.(Optional) Price Per One Item: <input type="number" name="price3" class="mx-2"> When the
+                        Ordering amonut is less than
+                        <input type="number" name="subquantity3" class="mx-2">
+                    </div>
+                    <div class="d-flex border-0 mt-2">
+                        #4.(Optional) Price Per One Item: <input type="number" name="price4" class="mx-2"> When the
+                        Ordering amonut is less than
+                        <input type="number" name="subquantity4" class="mx-2">
+                    </div>
+                    <div class="d-flex border-0 my-2">
+                        #5.(Optional) Price Per One Item: <input type="number" name="price5" class="mx-2"> When the
+                        Ordering amonut is less than
+                        <input type="number" name="subquantity5" class="mx-2">
+                    </div>
+                </div>
+                <div class="py-1 px-4 mt-2">
+                    <div class="page-sub-title">Shipping Information</div>
+                    <div class="border-0 d-flex mt-4 gap-4">
+                        <div class="border-0 d-flex">
+                            <div class="border-0" style="width: 180px;">Shipping From:</div>
+                            <select name="ships_from" disabled>
+                                <option>US</option>
+                                <option>adfaf sadfsdf</option>
+                                <option>adfaf sadfsdf</option>
+                                <option>adfaf sadfsdf</option>
+                            </select>
+                        </div>
+                        <div class="border-0 d-flex">
+                            <div class="border-0" style="width: 180px;">Shipping To:</div>
+                            <select name="ships_to">
+                                <option>US</option>
+                                <option>adfaf sadfsdf</option>
+                                <option>adfaf sadfsdf</option>
+                                <option>adfaf sadfsdf</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Delivery Method #1:</div>
+                        Method: <input type="text" name="method1" class="me-2" required>
+                        Days: <input type="number" name="days1" class="me-2" value="1" required>
+                        Price(USD): <input type="number" name="ships_price1" value="0.00" required>
+                    </div>
+                    <div class="border-0 mt-2">
+                        <div class="border-0">Delivery Method #2:</div>
+                        Method: <input type="text" name="method2" class="me-2">
+                        Days: <input type="number" name="days2" class="me-2" value="1">
+                        Price(USD): <input type="number" name="ships_price2" value="0.00">
+                    </div>
+                    <div class="border-0 my-2">
+                        <div class="border-0">Delivery Method #3:</div>
+                        Method: <input type="text" name="method3" class="me-2">
+                        Days: <input type="number" name="days3" class="me-2" value="1">
+                        Price(USD): <input type="number" name="ships_price3" value="0.00">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary d-block mx-auto mt-2">+ Create
+                    Product</button>
+            </form>
+        </div>
+        <!-- end main content -->
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

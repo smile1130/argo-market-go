@@ -1,0 +1,106 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  {{if .Error}}
+  <div class="border-0 argo-error-alert">{{.Error}}</div>
+  {{end}}
+  {{if .Success}}
+  <div class="border-0 argo-success-alert">{{.Success}}</div>
+  {{end}}
+  <div class="header border-0">
+    <div class="border-0">
+      <a href="/">
+        <img src="/img/logo/logo.png" width="300px" alt="logo" />
+      </a>
+    </div>
+  </div>
+  <!-- navbar -->
+  <nav class="argonav">
+    {{with .ViewUser}} {{else}}
+    <a href="/auth/login">Login</a>
+    <a href="/auth/register">Register</a>
+    {{end}}
+    <a href="#">Forum</a>
+    <a href="#">Canary</a>
+    <a href="#">SubDread</a>
+    <a href="#">Twittor Community</a>
+  </nav>
+  <!-- login templage -->
+  <div class="p-2 mt-2">
+    <div class="mt-2" style="padding: 5px 20px">Home > Settings</div>
+    <section class="col-xl-12 my-4">
+      <!-- <div class="row g-0 m-auto" style="max-width: 1200px"> -->
+      <div class="col-lg-6 m-auto">
+        <div class="card-body p-md-5 mx-md-4 border-0">
+          <div class="text-center border-0">
+            <img class="logo_image" src="/img/logo/logo.png" style="width: 185px" alt="logo" />
+            <h4 class="mt-1 mb-4 pb-1">The Best Marketplace</h4>
+          </div>
+
+          <form action="/auth/login" method="post">
+            <p>Please login to your account</p>
+
+            <div class="form-outline mb-4">
+              <input type="text" id="form2Example11" class="form-control" name="username" placeholder="Your Username" />
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example22" class="form-control" name="password" placeholder="Password" />
+            </div>
+
+            <div class="text-center pt-1 mb-4 pb-1 border-0">
+              <button class="btn btn-primary mb-3 w-100" type="submit">
+                Log in
+              </button>
+              <a class="color-red" href="#">Forgot password?</a>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center pb-4 border-0">
+              <p class="mb-0 me-2">Don't have an account?</p>
+              <a href="/auth/register" class="btn btn-primary">
+                Create new
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2 border-0 bg-primary">
+                        <div class="text-white px-2 py-4 px-md-4 py-md-5 mx-md-4 border-0">
+                            <h3 class="mb-4 color-heading fw-bold">Welcome to Oodle Marketplace</h3>
+                            <p class="medium mb-0">
+                                We are extremely proud to present to you the future of Darknet Markets on our platform.
+                                We have worked tirelessly to provide you a high quality shopping experience with the best
+                                quality vendors and the safety of your funds.
+                                To begin your shopping experience, you may login or register with a new username and
+                                password
+                                combination.
+        
+                                <br><span class="color-red">- Argo Team</span>
+                            </p>
+                            <br>
+                            <h3 class="mb-4 color-heading fw-bold">Account Recovery</h3>
+                            <p class="medium mb-0">
+                                To reset your account, enter your Mnemonic Phrase or PGP key.
+        
+                                If you have not already set up a PGP key but you still need to reset your account, you can
+                                use your Mnemonic Phrase, if you lost your Mnemonic Phrase please register a new username
+                                and open a support ticket referencing the issue.
+        
+                                If you forgot your account details <a href="" class="color-red">reset it here</a>.
+                            </p>
+                        </div>
+                    </div> -->
+      <!-- </div> -->
+    </section>
+  </div>
+
+  <!-- foother -->
+  {{template "footer"}}
+</body>
+
+</html>
+
+{{end}}

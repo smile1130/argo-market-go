@@ -1,0 +1,57 @@
+{{define "orders"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+  <!-- navbar -->
+  {{template "navbar" .}}
+  <!-- main body -->
+  <div class="p-2 mt-3 d-flex">
+    <!-- sidebar -->
+    {{template "sidebar" .}}
+
+    <!-- main content -->
+    <div class="main-content p-2">
+      <div class="page-title">Orders</div>
+      <div class="bg-notify border-0 rounded px-2 py-0 mx-2 text-center lh-sm mb-2">
+        Here, you can view your order history. Your current orders are the
+        orders that are not yet finalized, and the archived orders are the
+        finalized orders where feedback has been left. Orders disappear from
+        the panel 30 days after finalization.
+      </div>
+      <div class="bg-warning border-0 rounded px-2 py-0 mx-2 text-center lh-sm mb-2 fw-bold">
+        Never accept direct deals outside Abacus Market. You will likely end
+        up losing your money. Report through ticket any vendor asking you to
+        continue the transaction through wickr or any other type of external
+        method. If a vendor who does not have FE rights ask you to FE before
+        receiving your product, report them too, probably they want to scam
+        you.
+      </div>
+      <div class="border-0 d-flex justify-content-around mt-3">
+        <a href="/orders/user/?status=pending"
+          class="btn btn-outline-light {{if eq .SelectedStatus `pending`}} active {{end}}">Pending</a>
+        <a href="/orders/user/?status=accepted"
+          class="btn btn-outline-light {{if eq .SelectedStatus `accepted`}} active {{end}}">Accepted</a>
+        <a href="/orders/user/?status=shipped"
+          class="btn btn-outline-light {{if eq .SelectedStatus `shipped`}} active {{end}}">Shipped</a>
+        <a href="/orders/user/?status=finalized"
+          class="btn btn-outline-light {{if eq .SelectedStatus `finalized`}} active {{end}}">Finalized</a>
+        <a href="/orders/user/?status=disputed"
+          class="btn btn-outline-light {{if eq .SelectedStatus `disputed`}} active {{end}}">Disputed</a>
+        <a href="/orders/user/?status=cancelled"
+          class="btn btn-outline-light {{if eq .SelectedStatus `cancelled`}} active {{end}}">Cancelled</a>
+        <a href="/orders/user/?status=unpaid"
+          class="btn btn-outline-light {{if eq .SelectedStatus `unpaid`}} active {{end}}">Unpaid</a>
+      </div>
+      <!-- end main content -->
+    </div>
+  </div>
+  <!-- foother -->
+  {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}

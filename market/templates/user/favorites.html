@@ -1,0 +1,95 @@
+{{define "favorites"}}
+
+<!DOCTYPE html>
+<html>
+{{template "header" .}}
+
+<body>
+    <!-- navbar -->
+    {{template "navbar" .}}
+    <!-- main body -->
+    <div class="p-2 mt-3 d-flex">
+        <!-- sidebar -->
+        {{template "sidebar" .}}
+
+        <!-- main content -->
+        <div class="main-content p-2">
+            <div class="page-title">My Favorites</div>
+            <div class="bg-notify border-0 rounded px-2 py-0 mx-2 text-center lh-sm mb-2 fw-bold">Here, you can view the
+                items
+                and vendors you marked as favorite, and access them quickly from this page. You can have up to 100
+                favorites.
+            </div>
+            <div class="bg-warning border-0 rounded px-2 py-0 mx-2 text-center lh-sm mb-2 fw-bold">Never accept direct
+                deals
+                outside Abacus Market. You will likely end up losing your money. Report through ticket any vendor asking
+                you to
+                continue the transaction through wickr or any other type of external method. If a vendor who does not
+                have FE
+                rights ask you to FE before receiving your product, report them too, probably they want to scam you.
+            </div>
+            <div class="p-2 mt-2">
+                <div class="page-sub-title">Listings</div>
+                <div class="col-md-8 border-0 mt-3 text-center m-auto bg-notify">No Favorite Listings</div>
+                <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 border-0">
+                    <div class="border-0">
+                        <div class="col mt-2 p-1">
+                            <div class="px-2">
+                                <span>METH 0.5G - BLUE MEXICAN IMPORT - INC</span>
+                            </div>
+                            <div class="d-flex justify-content-between border-0">
+                                <div class="p-1 border-0">
+                                    <img src="/img/product.png" width="110px" class="rounded" />
+                                </div>
+                                <div class="product_detail border-0">
+                                    <span>Sold by: Inc(22799)</span>
+                                    <div class="d-flex align-items-center justify-content-between border_top border-0">
+                                        <div class="product_detail_item">
+                                            <span>Feedback</span><br />
+                                            <span class="bg-success rounded p-1"> 99.79% </span>
+                                        </div>
+                                        <div class="product_detail_item" style="border-left: 1px solid white">
+                                            <div class="border-0">Vendor Lvf</div>
+                                            <span class="bg-secondary rounded p-1">10</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between border_top border-0">
+                                        <div
+                                            class="product_detail_item d-flex align-items-center justify-content-center border-0">
+                                            <span>AUD 174.98</span>
+                                        </div>
+                                        <div class="product_detail_item" style="border-left: 1px solid white">
+                                            <span>Ships From</span><br />
+                                            <span class="bg-primary rounded p-1">Austrailas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 border-0 mt-1">
+                                <button class="btn btn-sm btn-success w-100">
+                                    Add To Cart
+                                    <img src="/img/icons/cart_white.png" width="18px" style="margin-top: -2px" />
+                                </button>
+                                <!-- <button class="btn btn-sm btn-primary w-100">
+                                    View Product
+                                    <img src="/img/icons/arrow-right.png" width="18px" style="margin-top: -2px" />
+                                </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 mt-2">
+                <div class="page-sub-title">Vendors</div>
+                <div class="col-md-8 border-0 mt-3 text-center m-auto bg-notify">No Favorite Vendors</div>
+            </div>
+        </div>
+        <!-- end main content -->
+    </div>
+    <!-- foother -->
+    {{template "footer" .}}
+</body>
+
+</html>
+
+{{end}}
